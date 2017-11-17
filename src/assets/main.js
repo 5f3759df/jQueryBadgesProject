@@ -19,13 +19,13 @@ Now let's add an a tag to our .course elements. These anchor tags need to includ
 
    */
   $.ajax({
-    url: '//www.codeschool.com/users/motorhead2033.json',
+    url: 'https://www.codeschool.com/users/motorhead2033.json',
     dataType: 'jsonp',
     success: function(response) {
-      console.log(response.courses.completed);
+      console.log("OK!!", response.courses);
     },
     error: function(error){
-      console.log(error);
+      console.log("Error!!!", error);
     }
   });
 
