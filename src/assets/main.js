@@ -20,7 +20,7 @@ Now let's add an a tag to our .course elements. These anchor tags need to includ
     dataType: 'jsonp',
     success: function(response) {
       console.log("OK!!", response.courses);
-      response.courses.courses.forEach(element => {
+      response.courses.in_progress.forEach(element => {
         $("#badges").append('<div class="course"><img src="' + element.badge + '"><a href="'+ element.url+'" target="_blank" class="btn btn-primary">' + element.title + '</a></div>');
       });
     },
