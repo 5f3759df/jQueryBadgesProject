@@ -3,9 +3,6 @@ $(function() {
   /*
    *  Make an Ajax Call
 
-Let's start by finding your Report Card URL (click here to see how) on CodeSchool.com and make an Ajax request that follows the following requirements: - Make an Ajax request to the Report Card URL you found on CodeSchool.com - Set the dataType as jsonp - Pass a success callback We made a sample Ajax request available to help you with this task.
-An Element per Completed Course
-
 By now, our Ajax call will have returned a response object that contains an array field called response.courses.completed. Let's add one div element per item in the courses.completed array inside of the #badges element. Add the CSS class course to each div element we add to #badges.
 Adding Course Titles
 
@@ -23,6 +20,9 @@ Now let's add an a tag to our .course elements. These anchor tags need to includ
     dataType: 'jsonp',
     success: function(response) {
       console.log("OK!!", response.courses);
+      response.courses.in_progress.forEach(element => {
+        $("#badges").append('<div class="course"><img src="' + element.badge + '"><a href="'+ element.url+'" target="_blank" class="btn btn-primary">' + element.title + '</a></div>');
+      });
     },
     error: function(error){
       console.log("Error!!!", error);
